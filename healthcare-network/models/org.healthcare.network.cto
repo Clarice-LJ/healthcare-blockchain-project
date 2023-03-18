@@ -60,10 +60,10 @@ transaction Transfer {
   --> User newOwner
 }
 
-event TransferNotification {
-  --> Record record
-}
+// event TransferNotification {
+//   --> Record record
+// }
 
-event RemoveNotification {
-  --> Record record
-}
+// event RemoveNotification {
+//   --> Record record
+// }

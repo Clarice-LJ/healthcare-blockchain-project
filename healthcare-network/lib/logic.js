@@ -29,9 +29,9 @@ async function transferRecord(transfer) {
     let assetRegistry = await getAssetRegistry('org.healthcare.network.Record');
 
     // emit a notification that a transfer has occurred
-    let transferNotification = getFactory().newEvent('org.healthcare.network', 'TransferNotification');
-    transferNotification.record = transfer.record;
-    emit(transferNotification);
+    // let transferNotification = getFactory().newEvent('org.healthcare.network', 'TransferNotification');
+    // transferNotification.record = transfer.record;
+    // emit(transferNotification);
 
     // persist the state of the record
     await assetRegistry.update(transfer.record);
