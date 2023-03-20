@@ -37,7 +37,7 @@ export class TransferComponent implements OnInit {
   transactionId = new FormControl('', Validators.required);
   timestamp = new FormControl('', Validators.required);
 
-
+  
   constructor(private serviceTransfer: TransferService, fb: FormBuilder) {
     this.myForm = fb.group({
       record: this.record,
@@ -103,8 +103,8 @@ export class TransferComponent implements OnInit {
       $class: 'org.healthcare.network.Transfer',
       'record': this.record.value,
       'newOwner': this.newOwner.value,
-      'transactionId': this.transactionId.value,
-      'timestamp': this.timestamp.value
+      // 'transactionId': this.transactionId.value,
+      // 'timestamp': this.timestamp.value
     };
 
     this.myForm.setValue({
