@@ -102,7 +102,7 @@ export class TransferComponent implements OnInit {
     this.Transaction = {
       $class: 'org.healthcare.network.Transfer',
       'record': this.record.value,
-      'newOwner': this.newOwner.value,
+      'newOwner': this.newOwner.value
       // 'transactionId': this.transactionId.value,
       // 'timestamp': this.timestamp.value
     };
