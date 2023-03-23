@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+      <table class="table table-responsive">
+        <thead class="thead">
+          <tr class="thead-cols">
+            
+                <th class="info">recordId</th>
+            
+                <th class="info">description</th>
+            
+                <th class="info">contant</th>
+            
+                <th class="info">length</th>
+            
+                <th class="info">state</th>
+            
+                <th class="info">price</th>
+            
+                <th class="info">owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asset of allAssets">
+            
+            <td class="asset-properties">{{asset.recordId}}</td>
+        
+            <td class="asset-properties">{{asset.description}}</td>
+        
+            <td class="asset-properties">{{asset.contant}}</td>
+        
+            <td class="asset-properties">{{asset.length}}</td>
+        
+            <td class="asset-properties">{{asset.state}}</td>
+        
+            <td class="asset-properties">{{asset.price}}</td>
+        
+            <td class="asset-properties">{{asset.owner}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -29,12 +29,14 @@ import { HealthcareProviderComponent } from './HealthcareProvider/HealthcareProv
 import { GovernmentComponent } from './Government/Government.component';
 
 import { TransferComponent } from './Transfer/Transfer.component';
+import { MarketplaceComponent } from './Marketplace/Marketplace.component';
 
   @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RecordComponent,
+    MarketplaceComponent,
     PatientComponent,
     DoctorComponent,
     HealthcareProviderComponent,

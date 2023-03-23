@@ -18,6 +18,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 import { RecordComponent } from './Record/Record.component';
+import { MarketplaceComponent } from './Marketplace/Marketplace.component';
 
 import { PatientComponent } from './Patient/Patient.component';
 import { DoctorComponent } from './Doctor/Doctor.component';
@@ -29,6 +30,7 @@ import { TransferComponent } from './Transfer/Transfer.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'Record', component: RecordComponent },
+  { path: 'Marketplace', component: MarketplaceComponent },
   { path: 'Patient', component: PatientComponent },
   { path: 'Doctor', component: DoctorComponent },
   { path: 'HealthcareProvider', component: HealthcareProviderComponent },
