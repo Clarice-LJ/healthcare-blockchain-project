@@ -23,16 +23,65 @@
  * @transaction
  */
 async function transferRecord(transfer) {
+    if(transfer.record.state !== 'FOR_SALE') {
+        throw new Error('Medical Record is not FOR SALE');
+    }
+    // Mark the record as PRIVATE
+    transfer.record.state = 'PRIVATE';
+    
+    // Update the balance of seller and buyer
+    var seller = transfer.record.owner;
+    var buyer = transfer.newOwner;
+    var price = transfer.record.price;
+    seller.wallet += price;
+    buyer.wallet -= price;
 
     // set the new owner of the record
     transfer.record.owner = transfer.newOwner;
+
     let assetRegistry = await getAssetRegistry('org.healthcare.network.Record');
+
+    // persist the state of the participants and record
+    // Update seller
+    if (seller.getFullyQualifiedType() === 'org.healthcare.network.Patient') {
+    	let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Patient');
+       	await participantRegistry.update(seller);
+    }
+  	else if (seller.getFullyQualifiedType() === 'org.healthcare.network.Doctor') {
+     	let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Doctor');
+       	await participantRegistry.update(seller);
+    }
+  	else if (seller.getFullyQualifiedType() === 'org.healthcare.network.HealthcareProvider') {
+        let participantRegistry  = await getParticipantRegistry('org.healthcare.network.HealthcareProvider');
+       	await participantRegistry.update(seller);
+    }
+  	else if (seller.getFullyQualifiedType() === 'org.healthcare.network.Government') {
+        let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Government');
+       	await participantRegistry.update(seller);
+    }
+  
+  	// Update buyer
+   	if (buyer.getFullyQualifiedType() === 'org.healthcare.network.Patient') {
+    	let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Patient');
+       	await participantRegistry.update(buyer);
+    }
+  	else if (buyer.getFullyQualifiedType() === 'org.healthcare.network.Doctor') {
+     	let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Doctor');
+       	await participantRegistry.update(buyer);
+    }
+  	else if (buyer.getFullyQualifiedType() === 'org.healthcare.network.HealthcareProvider') {
+        let participantRegistry  = await getParticipantRegistry('org.healthcare.network.HealthcareProvider');
+       	await participantRegistry.update(buyer);
+    }
+  	else if (buyer.getFullyQualifiedType() === 'org.healthcare.network.Government') {
+        let participantRegistry  = await getParticipantRegistry('org.healthcare.network.Government');
+       	await participantRegistry.update(buyer);
+    }
 
     // emit a notification that a transfer has occurred
     // let transferNotification = getFactory().newEvent('org.healthcare.network', 'TransferNotification');
     // transferNotification.record = transfer.record;
     // emit(transferNotification);
-
-    // persist the state of the record
+    
     await assetRegistry.update(transfer.record);
 }
