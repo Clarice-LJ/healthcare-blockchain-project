@@ -124,6 +124,7 @@ export class TransferComponent implements OnInit {
         'transactionId': null,
         'timestamp': null
       });
+      this.loadAll();
     })
     .catch((error) => {
       if (error === 'Server error') {

@@ -28,11 +28,15 @@ async function transferRecord(transfer) {
     }
     // Mark the record as PRIVATE
     transfer.record.state = 'PRIVATE';
+    transfer.record.price = 0;
     
     // Update the balance of seller and buyer
     var seller = transfer.record.owner;
     var buyer = transfer.newOwner;
     var price = transfer.record.price;
+    if (buyer.wallet < price) {
+      throw new Error('Point in the wallet is smaller than the price of record');
+    }
     seller.wallet += price;
     buyer.wallet -= price;
 
