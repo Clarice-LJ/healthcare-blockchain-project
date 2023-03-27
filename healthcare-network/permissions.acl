@@ -23,12 +23,30 @@
 //     action: ALLOW
 // }
 
+rule EverybodyCanReadSellingRecords {
+     description: "Allow all participants read the selling records"
+     participant: "org.healthcare.network.User"
+     operation: READ
+     resource(r): "org.healthcare.network.Record"
+  	 condition: (r.state == 'FOR_SALE')
+     action: ALLOW
+ }
+
+
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
     participant: "org.healthcare.network.User"
     operation: CREATE
     resource: "org.healthcare.network.Transfer"
     action: ALLOW
+}
+
+rule PartipantsSeeAllOthers {
+  description: "Participant can see all other participants"
+  participant: "org.healthcare.network.User"
+  operation: READ, UPDATE
+  resource: "org.healthcare.network.User"
+  action: ALLOW
 }
 
 rule OwnerHasFullAccessToTheirAssets {

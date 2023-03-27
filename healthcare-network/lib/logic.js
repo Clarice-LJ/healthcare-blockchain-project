@@ -26,9 +26,6 @@ async function transferRecord(transfer) {
     if(transfer.record.state !== 'FOR_SALE') {
         throw new Error('Medical Record is not FOR SALE');
     }
-    // Mark the record as PRIVATE
-    transfer.record.state = 'PRIVATE';
-    transfer.record.price = 0;
     
     // Update the balance of seller and buyer
     var seller = transfer.record.owner;
@@ -42,6 +39,10 @@ async function transferRecord(transfer) {
 
     // set the new owner of the record
     transfer.record.owner = transfer.newOwner;
+    
+    // Mark the record as PRIVATE and set the price as 0
+    transfer.record.state = 'PRIVATE';
+    transfer.record.price = 0;
 
     let assetRegistry = await getAssetRegistry('org.healthcare.network.Record');
 
