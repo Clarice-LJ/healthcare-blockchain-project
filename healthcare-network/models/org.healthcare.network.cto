@@ -54,7 +54,7 @@ participant Government extends User {
 asset Record identified by recordId {
   o String recordId
   o String description
-  o String contant
+  o String content
   o String length
   o recordState state
   o Double price optional

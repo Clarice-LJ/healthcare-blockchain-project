@@ -22,7 +22,7 @@ import {Event} from './org.hyperledger.composer.system';
    export class Record extends Asset {
       recordId: string;
       description: string;
-      contant: string;
+      content: string;
       length: string;
       owner: User;
    }

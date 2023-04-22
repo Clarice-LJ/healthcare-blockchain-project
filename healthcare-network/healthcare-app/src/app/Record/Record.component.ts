@@ -34,7 +34,7 @@ export class RecordComponent implements OnInit {
 
   recordId = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
-  contant = new FormControl('', Validators.required);
+  content = new FormControl('', Validators.required);
   length = new FormControl('', Validators.required);
   owner = new FormControl('', Validators.required);
 
@@ -42,7 +42,7 @@ export class RecordComponent implements OnInit {
     this.myForm = fb.group({
       recordId: this.recordId,
       description: this.description,
-      contant: this.contant,
+      content: this.content,
       length: this.length,
       owner: this.owner
     });
@@ -104,7 +104,7 @@ export class RecordComponent implements OnInit {
       $class: 'org.healthcare.network.Record',
       'recordId': this.recordId.value,
       'description': this.description.value,
-      'contant': this.contant.value,
+      'content': this.content.value,
       'length': this.length.value,
       'owner': this.owner.value
     };
@@ -112,7 +112,7 @@ export class RecordComponent implements OnInit {
     this.myForm.setValue({
       'recordId': null,
       'description': null,
-      'contant': null,
+      'content': null,
       'length': null,
       'owner': null
     });
@@ -124,7 +124,7 @@ export class RecordComponent implements OnInit {
       this.myForm.setValue({
         'recordId': null,
         'description': null,
-        'contant': null,
+        'content': null,
         'length': null,
         'owner': null
       });
@@ -144,7 +144,7 @@ export class RecordComponent implements OnInit {
     this.asset = {
       $class: 'org.healthcare.network.Record',
       'description': this.description.value,
-      'contant': this.contant.value,
+      'content': this.content.value,
       'length': this.length.value,
       'owner': this.owner.value
     };
@@ -199,7 +199,7 @@ export class RecordComponent implements OnInit {
       const formObject = {
         'recordId': null,
         'description': null,
-        'contant': null,
+        'content': null,
         'length': null,
         'owner': null
       };
@@ -216,10 +216,10 @@ export class RecordComponent implements OnInit {
         formObject.description = null;
       }
 
-      if (result.contant) {
-        formObject.contant = result.contant;
+      if (result.content) {
+        formObject.content = result.content;
       } else {
-        formObject.contant = null;
+        formObject.content = null;
       }
 
       if (result.length) {
@@ -252,7 +252,7 @@ export class RecordComponent implements OnInit {
     this.myForm.setValue({
       'recordId': null,
       'description': null,
-      'contant': null,
+      'content': null,
       'length': null,
       'owner': null
       });

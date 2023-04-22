@@ -28,7 +28,7 @@ export class MarketplaceComponent implements OnInit {
 
     recordId = new FormControl('', Validators.required);
     description = new FormControl('', Validators.required);
-    contant = new FormControl('', Validators.required);
+    content = new FormControl('', Validators.required);
     length = new FormControl('', Validators.required);
     state = new FormControl('', Validators.required);
     price = new FormControl('', Validators.required);
@@ -43,7 +43,7 @@ export class MarketplaceComponent implements OnInit {
         this.myForm = fb.group({
           recordId: this.recordId,
           description: this.description,
-          contant: this.contant,
+          content: this.content,
           length: this.length,
           state: this.state,
           price: this.price,

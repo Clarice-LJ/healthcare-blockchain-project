@@ -3,7 +3,7 @@
     "composer": "^0.19.20"
   },
   "name": "healthcare-network",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This is a blockchain network for healthcare system",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/healthcare-network.bna",
